@@ -18,6 +18,7 @@ defmodule Golfscores.Router do
 
     get "/", PageController, :index
     get "/hello", HelloController, :index
+    get "/hello/:name", HelloController, :show
   end
 
   # Other scopes may use custom stacks.
