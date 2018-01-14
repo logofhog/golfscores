@@ -12,6 +12,10 @@ defmodule Golfscores.Router do
   pipeline :api do
     plug :accepts, ["json"]
   end
+  scope "/api", Golfscores do
+    pipe_through :api
+    resources "/courses", CourseController, only: [:index]
+  end
 
   scope "/", Golfscores do
     pipe_through :browser # Use the default browser stack
